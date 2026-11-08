@@ -2,8 +2,8 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 public class Graph {
-    private int V;
-    private LinkedList<Integer> adj[];
+    private int V; // Jumlah simpul
+    private LinkedList<Integer>[] adj;
     private int[] nilai;      // nilai tiap node a1..a8
     private boolean ketemu = false;
     private int langkah = 0;
