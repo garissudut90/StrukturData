@@ -9,6 +9,7 @@ public class GraphDfs {
 
     private Map<Integer, Integer>nodeValues; // simpan nilai tiap node
 
+    @SuppressWarnings("unchecked")
     GraphDfs(int v) {
         V = v;
         adj = new LinkedList[v];
