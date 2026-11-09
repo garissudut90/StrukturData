@@ -31,10 +31,11 @@ public class GraphDfs {
 
     boolean DFSFind(int v, int target, boolean[] visited) {
         visited[v] = true;
-        System.out.print("Mengunjungi node: " + labels[v] + "Dengan nilai " + nodeValues.get(v));
+        System.out.println("Mengunjungi node: " + labels[v] + " Dengan nilai " + nodeValues.get(v));
 
         if (nodeValues.get(v) == target) {
-            System.out.println("Ditemukan! Node " + labels[v] + "memiliki nilai " + target);
+            System.out.println("Ditemukan! Node " + labels[v] + " memiliki nilai " + target);
+            return true;
         }
 
         for (int n: adj[v]) {
@@ -51,12 +52,12 @@ public class GraphDfs {
     void searchValue(int start, int target) {
         boolean[] visited = new boolean[V];
         if (!DFSFind(start, target, visited)) {
-            System.out.println("Nilai " + target + "tidak ditemukan dalam graf.");
+            System.out.println("Nilai " + target + " tidak ditemukan dalam graf.");
         }
     }
 
    public static void main(String[] args) {
-    GraphDfs g = new GraphDfs(7);
+    GraphDfs g = new GraphDfs(8);
 
         // Menentukan hubungan antar simpul (berarah)
         g.addEdge(0, 1); //a1 -> a2
@@ -65,6 +66,7 @@ public class GraphDfs {
         g.addEdge(1, 4); //a2 -> a5
         g.addEdge(2, 5); //a3 -> a6
         g.addEdge(2, 6); //a3 -> a7
+        g.addEdge(3, 7); //a4 -> a8
 
         // menetapkan nilai node
         g.setNodeValue(0, 5); // a1
@@ -74,9 +76,10 @@ public class GraphDfs {
         g.setNodeValue(4, 4); // a5
         g.setNodeValue(5, 10); // a6
         g.setNodeValue(6, 2); // a7
+        g.setNodeValue(7, 25); // a8
 
         // Pencarian nilai
-        int target = 88; // Ganti dengan nilai yang dicari
+        int target = 4; // Ganti dengan nilai yang dicari
         System.out.println("Mencari nilai " + target + " dari simpul a1:");
         g.searchValue(0, target); // Mulai dari node a1 (index 0)
    }
